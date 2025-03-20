@@ -18,6 +18,12 @@ export class DataBaseError extends CustomError {
     }
 }
 
+export class PeliculasError extends CustomError {
+    constructor(message, statusCode, details) {
+        super(message || 'Error en la base de datos de peliculas', statusCode || 500, details);
+    }
+}
+
 export class InternalServerError extends CustomError {
     constructor(message, statusCode, details) {
         super(message || 'Error interno del servidor', statusCode || 500, details);
