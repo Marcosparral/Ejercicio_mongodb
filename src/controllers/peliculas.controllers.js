@@ -40,3 +40,19 @@ export const getPeliculaById = async (req, res, netx) => {
         netx(error);
     };
 };
+
+export const createPeliculas = async (req, res, netx) => {
+    try {
+        const dataPelicula = req.body;
+        const peliculas = await createPeliculasServices(dataPelicula);
+
+        res.status(201).json({
+            message: `Pelicula creada con exito`,
+            statusCode: 200,
+            data: peliculas,
+        })
+    } catch (error) {
+        netx(error);
+        
+    }
+}
