@@ -3,6 +3,9 @@ import express from 'express';
 import { envs } from './config/envs.config.js';
 import { dbConnect } from './config/db.config.js';
 
+import peliculasRouter from './routers/peliculas.routes.js';
+import { errorHandler } from './middlewares/errorHandler.js';
+
 const app = express();
 
 dbConnect();
@@ -15,8 +18,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Middlewares de rutas
+app.use('/api/v1', peliculasRouter);
 
 //Middlewares de errores
+app.use(errorHandler);
+
+
 
 app.listen(envs.port, () => {
     console.log(`Servidor escuchando en el puerto ${envs.port}`);

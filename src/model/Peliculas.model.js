@@ -1,5 +1,4 @@
-import mongoose, { Types } from "mongoose";
-
+import mongoose, { Types } from 'mongoose';
 
 const Schema = mongoose.Schema;
 
@@ -10,6 +9,8 @@ const PeliculasSchema = new Schema({
     duracion: { type: Number, required: true },
     puntaje_critica: { type: Types.Double, required: true },
     gano_oscar: { type: Boolean, required: true },
-}, {versionKey: false, timestamps: false});
+}, {versionKey: false, timestamps: false}
+);
 
-export const Peliculas = mongoose.model('Peliculas', PeliculasSchema);
+export const Peliculas = mongoose.model('peliculas', PeliculasSchema);
+

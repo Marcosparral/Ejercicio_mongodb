@@ -18,8 +18,11 @@ export default [
         },
         rules: {
             indent: ['error', 4],
+            'no-unused-vars': ['error', {argsIgnorePattern: '^_'}],
             "no-undef": 'error',
             semi: ['error', 'always'],
+            quotes: ['error', 'single'],
+
             
             
         }

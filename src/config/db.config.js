@@ -1,5 +1,6 @@
-import mongoose from "mongoose";
-import { envs } from "./envs.config.js";
+import mongoose from 'mongoose';
+import { envs } from './envs.config.js';
+import { DataBaseError } from '../errors/typeError.js';
 
 const { db } = envs;
 
@@ -8,7 +9,8 @@ export const dbConnect = async () => {
         await mongoose.connect(db.uri);
         console.log('Conexión a la base de datos exitosa');
     } catch (error) {
-        console.error('Error al conectar a la base de datos', error);
+        throw new DataBaseError('Error al conectar a la base de datos', 500, error);
+        
 
     }
 };
